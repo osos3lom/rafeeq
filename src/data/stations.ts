@@ -1,0 +1,122 @@
+import type { FuelType, LatLng, Station } from '../domain/types';
+
+// Official Saudi retail fuel prices (VAT inclusive), SAR per liter.
+export const FUEL_PRICES: Record<FuelType, number> = { '91': 2.18, '95': 2.33, diesel: 1.66 };
+
+/** Simulated driver location — Olaya, Riyadh. */
+export const USER_LOCATION: LatLng = { lat: 24.7115, lng: 46.6745 };
+
+export const STATIONS: Station[] = [
+  {
+    id: 'st_olaya',
+    nameAr: 'رفيق — العليا',
+    nameEn: 'Rafeeq — Olaya',
+    districtAr: 'طريق الملك فهد، العليا',
+    districtEn: 'King Fahd Rd, Olaya',
+    location: { lat: 24.7028, lng: 46.6812 },
+    hasRafeeq: true,
+    menuId: 'menu_full',
+    open24h: true,
+    prices: FUEL_PRICES,
+    amenities: ['cafe', 'store', 'prayer', 'restroom', 'air'],
+    pumps: [
+      { number: 1, fuels: ['91', '95'], robotic: true, status: 'busy' },
+      { number: 2, fuels: ['91', '95'], robotic: true, status: 'available' },
+      { number: 3, fuels: ['91', '95', 'diesel'], robotic: true, status: 'busy' },
+      { number: 4, fuels: ['91', '95'], robotic: true, status: 'available' },
+      { number: 5, fuels: ['diesel'], robotic: false, status: 'available' },
+      { number: 6, fuels: ['91', '95'], robotic: true, status: 'offline' },
+    ],
+  },
+  {
+    id: 'st_sulimaniyah',
+    nameAr: 'رفيق — السليمانية',
+    nameEn: 'Rafeeq — Sulimaniyah',
+    districtAr: 'طريق الأمير سلطان، السليمانية',
+    districtEn: 'Prince Sultan Rd, Sulimaniyah',
+    location: { lat: 24.7032, lng: 46.7082 },
+    hasRafeeq: true,
+    menuId: 'menu_full',
+    open24h: true,
+    prices: FUEL_PRICES,
+    amenities: ['cafe', 'store', 'prayer', 'wash'],
+    pumps: [
+      { number: 1, fuels: ['91', '95'], robotic: true, status: 'available' },
+      { number: 2, fuels: ['91', '95'], robotic: true, status: 'busy' },
+      { number: 3, fuels: ['91', '95', 'diesel'], robotic: true, status: 'busy' },
+      { number: 4, fuels: ['91', '95'], robotic: true, status: 'busy' },
+    ],
+  },
+  {
+    id: 'st_hittin',
+    nameAr: 'رفيق — حطين',
+    nameEn: 'Rafeeq — Hittin',
+    districtAr: 'طريق الأمير تركي الأول، حطين',
+    districtEn: 'Prince Turki I Rd, Hittin',
+    location: { lat: 24.7608, lng: 46.6128 },
+    hasRafeeq: true,
+    menuId: 'menu_full',
+    open24h: true,
+    prices: FUEL_PRICES,
+    amenities: ['cafe', 'store', 'prayer', 'restroom', 'air', 'wash'],
+    pumps: [
+      { number: 1, fuels: ['91', '95'], robotic: true, status: 'available' },
+      { number: 2, fuels: ['91', '95'], robotic: true, status: 'available' },
+      { number: 3, fuels: ['91', '95', 'diesel'], robotic: true, status: 'busy' },
+      { number: 4, fuels: ['91', '95'], robotic: true, status: 'available' },
+      { number: 5, fuels: ['91', 'diesel'], robotic: false, status: 'available' },
+      { number: 6, fuels: ['91', '95'], robotic: true, status: 'available' },
+      { number: 7, fuels: ['91', '95'], robotic: true, status: 'busy' },
+      { number: 8, fuels: ['91', '95'], robotic: true, status: 'available' },
+    ],
+  },
+  {
+    id: 'st_malqa',
+    nameAr: 'رفيق إكسبريس — الملقا',
+    nameEn: 'Rafeeq Express — Al Malqa',
+    districtAr: 'طريق أنس بن مالك، الملقا',
+    districtEn: 'Anas Ibn Malik Rd, Al Malqa',
+    location: { lat: 24.8012, lng: 46.6305 },
+    hasRafeeq: true,
+    menuId: 'menu_express',
+    open24h: false,
+    prices: FUEL_PRICES,
+    amenities: ['store', 'prayer'],
+    pumps: [
+      { number: 1, fuels: ['91', '95'], robotic: true, status: 'available' },
+      { number: 2, fuels: ['91', '95', 'diesel'], robotic: true, status: 'available' },
+      { number: 3, fuels: ['91', '95'], robotic: true, status: 'busy' },
+    ],
+  },
+  {
+    id: 'st_nakheel',
+    nameAr: 'محطة النخيل',
+    nameEn: 'Al Nakheel Station',
+    districtAr: 'طريق الملك عبدالله، النخيل',
+    districtEn: 'King Abdullah Rd, Al Nakheel',
+    location: { lat: 24.7418, lng: 46.6452 },
+    hasRafeeq: false,
+    menuId: null,
+    open24h: true,
+    prices: FUEL_PRICES,
+    amenities: ['store', 'air'],
+    pumps: [],
+  },
+  {
+    id: 'st_wurud',
+    nameAr: 'محطة الورود',
+    nameEn: 'Al Wurud Station',
+    districtAr: 'شارع العليا العام، الورود',
+    districtEn: 'Olaya St, Al Wurud',
+    location: { lat: 24.7295, lng: 46.6602 },
+    hasRafeeq: false,
+    menuId: null,
+    open24h: false,
+    prices: FUEL_PRICES,
+    amenities: ['prayer'],
+    pumps: [],
+  },
+];
+
+/** The station + pump the demo "geofence + plate recognition" resolves to. */
+export const DEMO_ARRIVAL = { stationId: 'st_olaya', pumpNumber: 4 };

@@ -1,0 +1,17 @@
+{
+  "name": "رفيق | Rafeeq",
+  "short_name": "رفيق",
+  "description": "رفيقك الذكي في كل محطة — ادفع، عبّي، واطلب قهوتك من سيارتك",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F4F7F8",
+  "theme_color": "#12324A",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}
